@@ -200,6 +200,7 @@ fn build() -> io::Result<()> {
     configure.current_dir(&source_dir);
 
     configure.arg(format!("--prefix={}", search().to_string_lossy()));
+    configure.arg(format!("--toolchain=msvc"));
 
     if env::var("TARGET").unwrap() != env::var("HOST").unwrap() {
         // Rust targets are subtly different than naming scheme for compiler prefixes.
